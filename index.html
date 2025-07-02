@@ -1,37 +1,55 @@
 <!DOCTYPE html>
-  <html  lang="en">
-     </head>
-            <meta charst="UTF-8">
-            <meta name="viewport"content="width=device-width,initial-scale=1.0">
-            <title>Avengers</title>
-            <link rel="stylesheet" href="style.css">
-    </header>
-            <body> 
-                <header>
-                    <nav>
-                        <ul>
-                     <li><a href="index.html">Home</a></li>
-                     <li><a href="About.html">About</a></li>
-                     <li><a href="Contact.html">Contact</a></li>
-                      </div>
-                <div class= "gallerry">
-                 <a href="avenger-1.html"><img src="images/avengers_01.jpg"/></a>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact List</title>
+    </head>
+    <body onload ="fetchContact()">
 
-                 <a href="avanger-2.html"><img src="images/avengers_02.jpg"/></a>
-                 <a href="avanger-3.html"><img src="images/avengers_03.jpg"/></a>
-                 <a href="avenger-4.html"><img src="images/avengers_04.jpg"/></a>
-                 <a href="avenger-5.html"><img src="images/avengers_05.jpg"/></a>
-                 <a href="avenger-6.html"><img src="images/avengers_06.jpg"/></a>
-                </di
-                   </alu>
-                     </nav>
-                    </header>
+    <div id="table">Contact loading---</div>
+    <button id="refresh" type="button">Refresh</button>
+    <button id="AddContact" type="button">Add Contact</button>
 
-                <main>
+    <script src="config.js"></script>
+    <script>
+    
+    document.getElementById("refresh").addEventListener('click', fetchContacts);
+    document.getElementById("AddContact").addEventListener('click',addContact);
+    
+    function fetchContacts() {
+        fetch(rootPath + "controller/get-contacts/")
+        .then(function(response) {
+            return response.json();
 
-                </main>
-                <footer>
-                </footer>
-               
-            </body>
-     
+        })
+        .then(function(data) {
+            displayOutput(data);
+         });
+    }
+
+        function displayOutput(data) {
+           let output ="<table border='1' cellpadding='5 cellspacing='0'>";
+             for(let a in data) {
+                    output +=`
+                    <tr onclick="editContact(${data[a].id})">
+                        <td>
+                            <img src="${rootPath}controller/uploads/${data[a].avatar}" width"40" height="40" style="object-fit:cover; border-radius:50%;"/>
+                        </td>
+                         <td><h5>${data[a].firstname}</h5></td>
+                         <td><h5>${data[a].lastname}</h5></td>
+                        </tr>
+                        `;
+                        
+        } output += "</Table>";
+          document.getElementById("table").innerHTML = output;
+    }
+
+    function addContact() {
+        window.open("add-contact.html","_self");
+    }
+function editContact(id){
+    window.open("edit-contact.html?=" + id,"_self");
+}
+</script>
+    </body>
+</html>

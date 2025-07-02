@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Edit Contact</title>
+        </head>
+            <body onload="getContact()">
+                <div id="avatarImage"></div>
+                <form id="editform">
+                    <label for="firstname">First name</label>
+                    <input type="text"name="firstname" id="lastname" readonly><br/>
+                    
+                    <label for="lastname">Last name</label>
+                    <input type="text"name="lastname" id="lastname" readonly><br/>
+                   
+                    <label for="mobile">Mobile</label>
+                    <input type="text"name="Mobile" id="mobile" readonly><br/>
+                    
+                    <label for="email">Email</label>
+                    <input type="text"name="email" id="email"readonly><br/>
+                    
+                    <label for="avatar">Avatar</label>
+                    <input type="file"name="avator" id="avator"hidden><br/>
+
+                    <button type="Submit" id ="submitform" hidden>Submit</button>
+            </form>
+            <br/>
+            <button id="homeLink" type="button">Home</button>
+            <button id="editContact" type="button">Edit</button>
+            <button id="deleteContact" type="button">Delete</button>
+            
+            <script src="config.js"></script>
+            <script>
+                var id = getId();
+                document.getElementsById("homeLink").addEventListener('click',homeLink);
+                consele.log("The id is :" + id);
+
+                function getId() {
+                    var url = window.location.href;
+                    var pos = url.search("=");
+                    var id = url.slice(pos + 1);
+                    return id;
+
+                }
+                function getContact(){
+                    fetch(rootPath + 'control/get-contacts/?id='+ id)
+                    .the(function(data){
+                        //display contact info
+                        consele.log(data);
+                    })
+                }
+                function homeLink() {
+                    window.open("index.html","_self");
+                }
+                
+               
+
+                
+                  
