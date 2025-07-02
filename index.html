@@ -1,55 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Contact List</title>
-    </head>
-    <body onload ="fetchContact()">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <img src="images/images/logo.png">
+    </div>
+    <div id="tabs-top">
+        <a href="animals.html">ANIMALS</a>
+        <a href="index.html">MAP</a>
+        <a href="Places.html">PLACES</a> 
+    </div>
+    <div id="Main-home">
+        <img src="images/images/logo.png">
+    </div>
+    <div id="content">
+        <a class="info-box" href="animals.html">
+            <img class="right" src="images/images/next-arrow.png"/>
+            <img src="images/images/elephant-tn.png"/>
+            <h3>ELEPHANT</h3>
+            <p>Gentle giants of the jungle</p>
+        </a>
+        <a class="info-box" href="animals.html">
+            <img class="right" src="images/images/next-arrow.png"/>
+            <img src="images/images/gemsbok-tn.png"/>
+            <h3>GEMSBOK</h3>
+            <p>Come and see the majestic Gemsbok</p>
+        </a>
+        <a class="info-box" href="animals.html">
+            <img class="right" src="images/images/next-arrow.png"/>
+            <img src="images/images/giraffe-tn.png"/>
+            <h3>GIRAFFE</h3>
+            <p>Our Giraffe loves company</p>
+        </a>
+        <a class="info-box" href="animals.html">
+            <img class="right" src="images/images/next-arrow.png"/>
+            <img src="images/images/gorilla-tn.png"/>
+            <h3>GORILLA</h3>
+            <p>Our King Kong</p>
+        </a>
+        <a class="info-box" href="animals.html">
+            <img class="right" src="images/images/next-arrow.png"/>
+            <img src="images/images/koala-tn.png"/>
+            <h3>KOALA</h3>
+            <p>Come and see our cutest animal</p>
+        </a>
+        <a class="info-box" href="animals.html">
+            <img class="right" src="images/images/next-arrow.png"/>
+            <img src="images/images/lion-tn.png"/>
+            <h3>LION</h3>
+            <p>King of the Jungle</p>
+        </a>
+        <a class="info-box" href="animals.html">
+            <img class="right" src="images/images/next-arrow.png"/>
+            <img src="images/images/monkey-tn.png"/>
+            <h3>MONKEY</h3>
+            <p>Cutest Monkey</p>
+        </a>
+        <a class="info-box" href="animals.html">
+            <img class="right" src="images/images/next-arrow.png"/>
+            <img src="images/images/panda-tn.png"/>
+            <h3>PANDA</h3>
+            <p>Our lovely Panda</p>
+        </a>
+       
+    </div>
+    <img src="images/images/map.png" width="100%"/>
+    <div id="tabs-bottom">
+        <a href="weather.html">WEATHER</a>
+        <a href="feedback.html">FEEDBACK</a>
+    </div>
 
-    <div id="table">Contact loading---</div>
-    <button id="refresh" type="button">Refresh</button>
-    <button id="AddContact" type="button">Add Contact</button>
-
-    <script src="config.js"></script>
-    <script>
-    
-    document.getElementById("refresh").addEventListener('click', fetchContacts);
-    document.getElementById("AddContact").addEventListener('click',addContact);
-    
-    function fetchContacts() {
-        fetch(rootPath + "controller/get-contacts/")
-        .then(function(response) {
-            return response.json();
-
-        })
-        .then(function(data) {
-            displayOutput(data);
-         });
-    }
-
-        function displayOutput(data) {
-           let output ="<table border='1' cellpadding='5 cellspacing='0'>";
-             for(let a in data) {
-                    output +=`
-                    <tr onclick="editContact(${data[a].id})">
-                        <td>
-                            <img src="${rootPath}controller/uploads/${data[a].avatar}" width"40" height="40" style="object-fit:cover; border-radius:50%;"/>
-                        </td>
-                         <td><h5>${data[a].firstname}</h5></td>
-                         <td><h5>${data[a].lastname}</h5></td>
-                        </tr>
-                        `;
-                        
-        } output += "</Table>";
-          document.getElementById("table").innerHTML = output;
-    }
-
-    function addContact() {
-        window.open("add-contact.html","_self");
-    }
-function editContact(id){
-    window.open("edit-contact.html?=" + id,"_self");
-}
-</script>
-    </body>
+</body>
 </html>
