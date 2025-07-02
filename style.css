@@ -1,35 +1,31 @@
-.{
-     margin: 0;
-     padding: 0;
+table{
+    color:#fff;
+    text-align: center;
+    border-collapse: collapse;
+    font: normal 3em Arial,Helvetica, sans-serif;
 }
-
-nav {
-    background-color: black;
+tr{
+    height: 16.02vh;
+    background-color: #4e494d;
 }
-
-nav ul {
-    list-style: none;
-    display:flex;
-    justify-content: flex-end;
-    padding: 20px;
-    gap: 20px;
+td{
+    width: 12vw;
+    border: 1px solid #4e494d;
 }
-    nav ul li a {
-        text-decoration: none;
-        color:white;
-        font-size: 20px;
-        font-family:Arial, Helvetica, sans-serif;
-    }
-    nav ul li a:hover {
-        color: #ff0000;
-        text-decoration: underline;
-    }
-    .gallery img{
-        color: #ff0000;
-        font-size: 50px;
-        background-color: black;
-    }
-
-
-
-
+#inputBox{
+    background-color: #4e494d;
+    text-align: right;
+    width: 100%;
+    font-size: 2em;
+    color: #fff;
+    border: 0px;
+}
+.digitButton{
+    background-color: #807e80;
+}
+.operatorButton{
+    background-color: #ff9e06;
+}
+.ACButton{
+    background-color: #656165;
+}

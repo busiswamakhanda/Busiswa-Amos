@@ -1,0 +1,27 @@
+ <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h1 id="heading" onclick="changeText()">Javascript</h1>
+        <p id="addition"></p>
+        <script>
+            // Define functions before using them
+            function addNumbers(num1, num2){
+                return num1 + num2;
+            }
+
+            function changeText(){
+                const heading = document.getElementById("heading");
+                if (heading.innerHTML === 'Javascript') {
+                    heading.innerHTML = 'is awesome';
+                } else {
+                    heading.innerHTML = 'Javascript';
+                }
+            }
+
+            // Call function after definition
+            document.getElementById("addition").innerHTML = addNumbers(10, 20);
+        </script>
+    </body>
+</html>
