@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <td colspan="5">
+                    <input type="text" id="inputBox" value="0"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="digitButton" onclick="digitBtnPressed(7)">7</td>
+                <td class="digitButton" onclick="digitBtnPressed(8)">8</td>
+                <td class="digitButton" onclick="digitBtnPressed(9)">9</td>
+                <td class="operatorButton" onclick="operatorBtnPressed('x')">x</td>
+            </tr>
+            <tr>
+                <td class="digitButton" onclick="digitBtnPressed(4)">4</td>
+                <td class="digitButton" onclick="digitBtnPressed(5)">5</td>
+                <td class="digitButton" onclick="digitBtnPressed(6)">6</td>
+                <td class="operatorButton" onclick="operatorBtnPressed('-')">-</td>
+            </tr>
+            <tr>
+                <td class="digitButton" onclick="digitBtnPressed(1)">1</td>
+                <td class="digitButton" onclick="digitBtnPressed(2)">2</td>
+                <td class="digitButton" onclick="digitBtnPressed(3)">3</td>
+                <td class="operatorButton" onclick="operatorBtnPressed('+')">+</td>
+            </tr>
+            <tr>
+                <td class="digitButton" colspan="2" onclick="digitBtnPressed(0)">0</td>
+                <td class="ACButton" onclick="btnACPressed()">AC</td>
+                <td class="operatorButton" onclick="operatorBtnPressed('/')">/</td>
+            </tr>
+            <tr>
+                <td class="operatorButton" colspan="5" onclick="equalsBtnPressed()">=</td>
+            </tr>
+        </table>
+        
+        <script>
+            var newLine = true; // Boolean variable. if the next thing the user types should be on a new line
+            var value1 = 0;
+            var currentOperator = null;
+
+            // Event handler for when any digit button is pressed
+            function digitBtnPressed(button) {
+                if (newLine) {
+                    document.getElementById("inputBox").value = button;
+                    newLine = false;
+                } else {
+                    var currentValue = document.getElementById("inputBox").value;
+                    document.getElementById("inputBox").value = currentValue + button;
+                }
+            }
+
+            function btnACPressed() {
+                document.getElementById("inputBox").value = 0;
+                newLine = true; // fixed typo from "nweLine"
+                value1 = 0;
+                currentOperator = null;
+            }
+
+            function operatorBtnPressed(operator) {
+                currentOperator = operator;
+                value1 = parseFloat(document.getElementById("inputBox").value);
+                newLine = true;
+            }
+
+            // Event handler for equals to button
+            function equalsBtnPressed() {
+                var value2 = parseFloat(document.getElementById("inputBox").value);
+                var finalTotal;
+
+                switch (currentOperator) {
+                    case "+":
+                        finalTotal = value1 + value2;
+                        break;
+                    case "-":
+                        finalTotal = value1 - value2;
+                        break;
+                    case "/":
+                        finalTotal = value1 / value2;
+                        break;
+                    case "x":
+                        finalTotal = value1 * value2;
+                        break;
+                    default:
+                        finalTotal = value2; // if no operator, just show value2
+                }
+                document.getElementById("inputBox").value = finalTotal;
+                value1 = 0;
+                currentOperator = null;
+                newLine = true;
+            }
+
+            // Percentage function (not used in UI)
+            function calculatePercentage() {
+                const display = document.getElementById("inputBox");
+                const value = parseFloat(display.value);
+                if (!isNaN(value)) {
+                    display.value = value / 100;
+                }
+            }
+        </script>
+    </body>
+</html>
