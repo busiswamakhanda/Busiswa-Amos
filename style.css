@@ -1,29 +1,35 @@
-h1 {
-    color: green;
-    font-family: Arial, Helvetica, sans-serif;
+.{
+     margin: 0;
+     padding: 0;
 }
 
-p {
-    color: coral;
-    font-family: Arial, Helvetica, sans-serif;
+nav {
+    background-color: black;
 }
 
-ul {
-    list-style-image: url("icons8-cursor-32.png");
+nav ul {
+    list-style: none;
+    display:flex;
+    justify-content: flex-end;
+    padding: 20px;
+    gap: 20px;
 }
+    nav ul li a {
+        text-decoration: none;
+        color:white;
+        font-size: 20px;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    nav ul li a:hover {
+        color: #ff0000;
+        text-decoration: underline;
+    }
+    .gallery img{
+        color: #ff0000;
+        font-size: 50px;
+        background-color: black;
+    }
 
-ol {
-    list-style-type: upper-roman;
-}
 
-#menu-bar a {
-    font-family: Helvetica, sans-serif;
-    text-decoration: none;
-    background-color: aquamarine;
-    padding: 5px;
-}
 
-#menu-bar a:hover {
-    background-color: aqua;
-    color: #ffffff;
-}
+
