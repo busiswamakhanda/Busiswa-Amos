@@ -1,0 +1,35 @@
+.{
+     margin: 0;
+     padding: 0;
+}
+
+nav {
+    background-color: black;
+}
+
+nav ul {
+    list-style: none;
+    display:flex;
+    justify-content: flex-end;
+    padding: 20px;
+    gap: 20px;
+}
+    nav ul li a {
+        text-decoration: none;
+        color:white;
+        font-size: 20px;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    nav ul li a:hover {
+        color: #ff0000;
+        text-decoration: underline;
+    }
+    .gallery img{
+        color: #ff0000;
+        font-size: 50px;
+        background-color: black;
+    }
+
+
+
+
