@@ -30,15 +30,76 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.header h1 {
-    color: #4a5568;
-    font-size: 2rem;
-    font-weight: 700;
+/* Logo Styles */
+.logo-container {
+    display: flex;
+    align-items: center;
 }
 
-.header h1 i {
-    color: #667eea;
-    margin-right: 10px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.logo-icon:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.logo-icon i {
+    color: white;
+    font-size: 1.2rem;
+    position: absolute;
+}
+
+.logo-icon .fa-graduation-cap {
+    z-index: 2;
+    transform: translateY(-2px);
+}
+
+.logo-icon .fa-book-open {
+    z-index: 1;
+    opacity: 0.6;
+    transform: translateY(2px) scale(0.8);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4a5568;
+    line-height: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    color: #718096;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
 }
 
 .header-actions {
@@ -614,6 +675,25 @@ body {
         flex-direction: column;
         gap: 15px;
         text-align: center;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .logo-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .logo-title {
+        font-size: 1.5rem;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.7rem;
     }
     
     .navigation {
